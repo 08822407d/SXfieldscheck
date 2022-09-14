@@ -202,6 +202,78 @@ namespace SXfieldscheck
 					string code = fields[1];
 					string err = number;
 
+					if (code.Equals("140401") ||
+						code.Equals("140403"))
+					{
+						if (!fields[2].Equals("NULL"))
+							err += "\t第3列";
+						if (!fields[3].Equals("NULL"))
+							err += "\t第4列";
+						if (!fields[6].Equals("0.00"))
+							err += "\t第7列";
+						if (!fields[7].Equals("0.00"))
+							err += "\t第8列";
+					}
+
+					if (code.Equals("140402"))
+						err += "\t非法编码";
+					
+					if (code.Equals("130416"))
+					{
+						if (!fields[3].Equals("NULL"))
+							err += "\t第4列";
+						if (!fields[5].Equals("NULL"))
+							err += "\t第6列";
+						double val = 0;
+						if (!fields[7].Equals("0.00") &&
+							!Double.TryParse(fields[7], out val) &&
+							val < 25)
+							err += "\t第8列";
+					}
+
+					if (code.Equals("130417"))
+					{
+						if (!fields[3].Equals("NULL"))
+							err += "\t第4列";
+						if (!fields[5].Equals("NULL"))
+							err += "\t第6列";
+						double val = 0;
+						if (!fields[7].Equals("0.00") &&
+							!Double.TryParse(fields[7], out val) &&
+							val < 15)
+							err += "\t第8列";
+					}
+
+					if (code.Equals("140521") ||
+						code.Equals("140523") ||
+						code.Equals("140524") ||
+						code.Equals("140525") ||
+						code.Equals("140526") ||
+						code.Equals("140527") ||
+						code.Equals("140528"))
+					{
+						if (!fields[3].Equals("NULL"))
+							err += "\t第4列";
+						if (!fields[5].Equals("NULL"))
+							err += "\t第6列";
+					}
+
+					if (code.Equals("149998") ||
+						code.Equals("149999"))
+					{
+						if (!fields[2].Equals("NULL"))
+							err += "\t第3列";
+						if (!fields[3].Equals("NULL"))
+							err += "\t第4列";
+						if (!fields[4].Equals("NULL"))
+							err += "\t第5列";
+						if (!fields[5].Equals("NULL"))
+							err += "\t第6列";
+						if (!fields[6].Equals("0.00"))
+							err += "\t第7列";
+						if (!fields[7].Equals("0.00"))
+							err += "\t第8列";
+					}
 
 					if(err.Length > number.Length)
 						sw.WriteLine(err);
