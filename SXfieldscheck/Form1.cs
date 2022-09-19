@@ -53,8 +53,8 @@ namespace SXfieldscheck
 			string input_dir = tbx_inputDIR.Text;
 			string output_dir = tbx_outputDIR.Text;
 
-			input_dir = @"C:\Users\cheyh\Desktop\testdata\xSXcheck";
-			output_dir = @"C:\Users\cheyh\Desktop\testdata\xSXresult";
+			//input_dir = @"C:\Users\cheyh\Desktop\testdata\xSXcheck";
+			//output_dir = @"C:\Users\cheyh\Desktop\testdata\xSXresult";
 
 			if (!Directory.Exists(input_dir))
 			{
@@ -92,7 +92,7 @@ namespace SXfieldscheck
 
 		void check_jsx(string f, string in_dir, string out_dir)
 		{
-			string outfile = f.Replace(in_dir, out_dir);
+			string outfile = Path.ChangeExtension(f.Replace(in_dir, out_dir), "txt");
 			string dir = Path.GetDirectoryName(outfile);
 			if (!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
@@ -137,7 +137,7 @@ namespace SXfieldscheck
 
 		void check_bsx(string f, string in_dir, string out_dir)
 		{
-			string outfile = f.Replace(in_dir, out_dir);
+			string outfile = Path.ChangeExtension(f.Replace(in_dir, out_dir), "txt");
 			string dir = Path.GetDirectoryName(outfile);
 			if (!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
@@ -184,7 +184,7 @@ namespace SXfieldscheck
 
 		void check_dsx(string f, string in_dir, string out_dir)
 		{
-			string outfile = f.Replace(in_dir, out_dir);
+			string outfile = Path.ChangeExtension(f.Replace(in_dir, out_dir), "txt");
 			string dir = Path.GetDirectoryName(outfile);
 			if (!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
@@ -285,7 +285,7 @@ namespace SXfieldscheck
 
 		void check_rsx(string f, string in_dir, string out_dir)
 		{
-			string outfile = f.Replace(in_dir, out_dir);
+			string outfile = Path.ChangeExtension(f.Replace(in_dir, out_dir), "txt");
 			string dir = Path.GetDirectoryName(outfile);
 			if (!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
@@ -323,7 +323,7 @@ namespace SXfieldscheck
 
 		void check_isx(string f, string in_dir, string out_dir)
 		{
-			string outfile = f.Replace(in_dir, out_dir);
+			string outfile = Path.ChangeExtension(f.Replace(in_dir, out_dir), "txt");
 			string dir = Path.GetDirectoryName(outfile);
 			if (!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
