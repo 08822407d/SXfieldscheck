@@ -66,6 +66,11 @@ namespace SXfieldscheck
 				MessageBox.Show("错误：输出文件夹不存在");
 				return;
 			}
+			if (output_dir.Equals(input_dir))
+			{
+				MessageBox.Show("错误：输出目录和输入目录相同");
+				return;
+			}
 
 			List<string> jsx_files = Utils.FIO.traverseSearchFile_Ext(input_dir, ".jsx");
 			List<string> bsx_files = Utils.FIO.traverseSearchFile_Ext(input_dir, ".bsx");
@@ -92,7 +97,7 @@ namespace SXfieldscheck
 
 		void check_jsx(string f, string in_dir, string out_dir)
 		{
-			string outfile = Path.ChangeExtension(f.Replace(in_dir, out_dir), "txt");
+			string outfile = f.Replace(in_dir, out_dir) + ".txt";
 			string dir = Path.GetDirectoryName(outfile);
 			if (!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
@@ -137,7 +142,7 @@ namespace SXfieldscheck
 
 		void check_bsx(string f, string in_dir, string out_dir)
 		{
-			string outfile = Path.ChangeExtension(f.Replace(in_dir, out_dir), "txt");
+			string outfile = f.Replace(in_dir, out_dir) + ".txt";
 			string dir = Path.GetDirectoryName(outfile);
 			if (!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
@@ -184,7 +189,7 @@ namespace SXfieldscheck
 
 		void check_dsx(string f, string in_dir, string out_dir)
 		{
-			string outfile = Path.ChangeExtension(f.Replace(in_dir, out_dir), "txt");
+			string outfile = f.Replace(in_dir, out_dir) + ".txt";
 			string dir = Path.GetDirectoryName(outfile);
 			if (!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
@@ -285,7 +290,7 @@ namespace SXfieldscheck
 
 		void check_rsx(string f, string in_dir, string out_dir)
 		{
-			string outfile = Path.ChangeExtension(f.Replace(in_dir, out_dir), "txt");
+			string outfile = f.Replace(in_dir, out_dir) + ".txt";
 			string dir = Path.GetDirectoryName(outfile);
 			if (!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
@@ -323,7 +328,7 @@ namespace SXfieldscheck
 
 		void check_isx(string f, string in_dir, string out_dir)
 		{
-			string outfile = Path.ChangeExtension(f.Replace(in_dir, out_dir), "txt");
+			string outfile = f.Replace(in_dir, out_dir) + ".txt";
 			string dir = Path.GetDirectoryName(outfile);
 			if (!Directory.Exists(dir))
 				Directory.CreateDirectory(dir);
